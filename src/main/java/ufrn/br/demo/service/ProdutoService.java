@@ -8,7 +8,8 @@ import ufrn.br.demo.repository.ProdutoRepository;
 import java.util.List;
 import java.util.Optional;
 
-//O @Service serve para indicar que ele está mantendo a lógica de negócios.
+/*O @Service serve para indicar que ele está mantendo a lógica de negócios,
+e facilitador para acessar os Models a partir de um framework de persistência de sua escolha ou JDBC puro) e as Views.*/
 @Service
 public class ProdutoService {
 
