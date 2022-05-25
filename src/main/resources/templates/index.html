@@ -5,6 +5,17 @@
     <title>Title</title>
 </head>
 <body>
-        <span th:text="${nome}"/>
+    <table style="border: black; border-style:groove; width: 100%">
+        <tr>
+            <th>Nome</th>
+            <th>Descrição</th>
+            <th>Preço</th>
+        </tr>
+        <tr th:each="p:${produtos}">
+            <td th:text="${p.nome}"></td>
+            <td th:text="p:${p.descricao}"></td>
+            <td th:text="p:${p.preco}"></td>
+        </tr>
+    </table>
 </body>
 </html>
