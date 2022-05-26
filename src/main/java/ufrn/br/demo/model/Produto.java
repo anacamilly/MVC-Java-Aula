@@ -23,8 +23,6 @@ public class Produto {
     /*A anotação @Id é utilizada para informar ao JPA qual campo/atributo de uma entidade estará relacionado à chave primária da respectiva tabela no banco de dados.
     Essa é uma anotação obrigatória e um erro será gerado em tempo de execução caso ela não esteja presente.*/
     @Id
-    /*A anotação GeneratedValue serve para falar que o campo mapeado será gerado automaticamente pelo banco de dados,
-    quando usamos Identity falamos que deve pegar o último registro daquela tabela e seguir com base naquele.*/
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
