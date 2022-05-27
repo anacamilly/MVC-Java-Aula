@@ -12,9 +12,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import ufrn.br.demo.model.Produto;
 import ufrn.br.demo.service.ProdutoService;
 
-/*@Controller é responsável tanto por receber requisições como por enviar a resposta ao usuário,
-e responsabiliza por informar a View, os atributos que serão visíveis para a mesma e também por receber parâmetros vindos da View. 
-E, por último, responder ao usuário o que foi requisitado. */
 @Controller
 public class ProdutoController {
     private ProdutoService service;
@@ -26,6 +23,7 @@ public class ProdutoController {
     public String getHome(Model model){
 
         List<Produto> produtos = service.findAll();
+        System.out.println(produtos);
         model.addAttribute("produtosList", produtos);
 
         return "index";
