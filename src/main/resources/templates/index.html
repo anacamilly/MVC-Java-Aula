@@ -19,7 +19,7 @@
             <a class="nav-link active" aria-current="page" href="/">Lista</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" th:href=@{"/cadastrar"}>Cadastro</a>
+            <a class="nav-link" th:href="/cadastrar">Cadastro</a>
           </li>
         </ul>
       </div>
@@ -38,12 +38,11 @@
         <th>Editar</th>
         <th>Deletar</th>
     </tr>
-    <span th:text="${produtosList}"></span>
-    <tr th:each="p : ${produtosList}">
-      <td th:text="${p.id}"></td>
-      <td th:text="${p.nome}"></td>
-      <td th:text="${p.descricao}"> </td>
-      <td th:text="${p.preco}"></td>
+    <tr th:each="p : ${produtosList}" th:object="${p}">
+      <td th:text="*{id}"></td>
+      <td th:text="*{nome}"></td>
+      <td th:text="*{descricao}"> </td>
+      <td th:text="*{preco}"></td>
       <td> <a th:href="@{'/editar/'+ *{id}}">Editar</a> </td>
       <td> <a th:href="@{'/deletar/'+ *{id}}">Deletar</a></td>
     </tr>
