@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<link rel="stylesheet" href="style.css">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -25,9 +26,9 @@
         </div>
       </nav>
 
-      <br/>
-      <h1 style="font-size: 25px; text-align: center">Cadastro de Produtos</h1>
-      <br/>
+    <div class="form-cadastro">
+
+      <h1>Cadastro de Produtos</h1>
 
       <form method="POST" th:action="@{/salvar}" th:object="${produto}">
         <input type="hidden" th:field="*{id}">
@@ -44,19 +45,12 @@
             <span class="input-group-text">$</span>
             <input type="text" name="preco" th:field="*{preco}" class="form-control">
         </div>
+          <div class="buttons">
+              <button type="reset" class="btn btn-danger">Limpar</button>
+              <button type="submit" class="btn btn-success">Enviar</button>
+          </div>
       </form>
+    </div>
 
-      <div style="text-align:center">
-        <button type="submit" class="btn btn-danger">Limpar</button>
-        <button type="reset" class="btn btn-success">Enviar</button>
-      </div>
-      <form method="POST" th:action="@{/salvar}" th:object="${produto}">
-        <input type="hidden" th:field="*{id}">
-        Nome: <input type="text" name="nome" th:field="*{nome}"/> <br />
-        Descrição: <input type="text" name="descricao" th:field="*{descricao}"/> <br />
-        Preço: <input type="text" name="preco" th:field="*{preco}"/> <br />
-        <button type="submit">Enviar</button>
-        <button type="reset">Limpar</button>
-      </form>
 </body>
 </html>

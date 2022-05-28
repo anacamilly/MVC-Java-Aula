@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<link rel="stylesheet" href="style.css">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -19,34 +20,37 @@
             <a class="nav-link active" aria-current="page" href="/">Lista</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" th:href="/cadastrar">Cadastro</a>
+            <a class="nav-link" href="/cadastrar">Cadastro</a>
           </li>
         </ul>
       </div>
     </div>
   </nav>
 
-  <br/>
-  <h1 style="font-size: 25px; text-align: center">Lista de Produtos</h1>
-  <br/>
-  <table class="table table-dark table-striped">
-    <tr>
-        <th>ID</th>
-        <th>Nome</th>
-        <th>Descrição</th>
-        <th>Preço</th>
-        <th>Editar</th>
-        <th>Deletar</th>
-    </tr>
+
+  <h1 class="listP">Lista de Produtos</h1>
+  <table class="table">
+      <thead class="table-dark">
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Descrição</th>
+                <th>Preço</th>
+                <th>Editar</th>
+                <th>Deletar</th>
+            </tr>
+      </thead>
     <tr th:each="p : ${produtosList}" th:object="${p}">
       <td th:text="*{id}"></td>
       <td th:text="*{nome}"></td>
       <td th:text="*{descricao}"> </td>
       <td th:text="*{preco}"></td>
-      <td> <a th:href="@{'/editar/'+ *{id}}">Editar</a> </td>
-      <td> <a th:href="@{'/deletar/'+ *{id}}">Deletar</a></td>
+
+        <div class="buttonsList">
+          <td> <a th:href="@{'/editar/'+ *{id}}"><img src="/image/editar.png" height="20" width="20"></a></td>
+          <td> <a th:href="@{'/deletar/'+ *{id}}"><img src="/image/removercarrinho.png" height="30" width="30"></a></td>
+        </div>
     </tr>
 </table>
-        
 </body>
 </html>
