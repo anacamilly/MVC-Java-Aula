@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="style.css">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Cadastrar produtos</title>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -29,21 +29,32 @@
     <div class="form-cadastro">
 
       <h1>Cadastro de Produtos</h1>
-
       <form method="POST" th:action="@{/salvar}" th:object="${produto}">
         <input type="hidden" th:field="*{id}">
         <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label">Nome</label>
             <input type="text" name="nome" th:field="*{nome}" class="form-control" id="exampleFormControlInput1">
+            <div class="error" th:if="${#fields.hasErrors('nome')}">
+                <img src="/image/erro.png" height="25" width="25" alt="">
+                <p th:errors="*{nome}"></p>
+            </div>
+            <br />
         </div>
         <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label">Descrição</label>
             <input type="text" name="descricao" th:field="*{descricao}" class="form-control" id="exampleFormControlInput1">
+            <div class="error" th:if="${#fields.hasErrors('descricao')}">
+                <img src="/image/erro.png" height="25" width="25" alt="">
+                <p th:errors="*{descricao}"></p>
+            </div>
         </div>
             <label for="exampleFormControlInput1" class="form-label">Preço</label>
             <div class="input-group mb-3">
-            <span class="input-group-text">$</span>
-            <input type="text" name="preco" th:field="*{preco}" class="form-control">
+            <input type="text" name="preco" th:field="*{preco}" class="form-control" id="exampleFormControlInput1"><br/>
+                <div class="error" th:if="${#fields.hasErrors('preco')}">
+                    <img src="/image/erro.png" height="25" width="25" alt="">
+                    <p th:errors="*{preco}"></p>
+                </div>
         </div>
           <div class="buttons">
               <button type="reset" class="btn btn-danger">Limpar</button>
@@ -52,5 +63,13 @@
       </form>
     </div>
 
+    <div class="div-voltar">
+        <a href="/" type="submit" class="bnt-voltar btn btn-dark">
+            <img src="/image/voltar.png" height="20" width="20" alt="Butão para voltar para lista de produtos">
+            Voltar
+        </a>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 </body>
 </html>
